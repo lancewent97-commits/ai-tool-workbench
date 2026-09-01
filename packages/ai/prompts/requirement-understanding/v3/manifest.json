@@ -1,0 +1,6 @@
+{
+  "key": "requirement-understanding",
+  "version": "3.0.0",
+  "systemFile": "system.md",
+  "outputContract": "RequirementUnderstandingResult"
+}

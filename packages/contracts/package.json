@@ -1,0 +1,19 @@
+{
+  "name": "@ai-tool-workbench/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@ai-tool-workbench/config": "workspace:*",
+    "typescript": "^5.1.3"
+  }
+}

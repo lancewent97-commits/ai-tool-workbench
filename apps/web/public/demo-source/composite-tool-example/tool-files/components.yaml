@@ -1,0 +1,7 @@
+components:
+  - name: PDF内容提取
+    goal: 提取词表字段
+  - name: 音标整理
+    goal: 统一音标格式
+  - name: 批量配音
+    goal: 生成音频文件与索引

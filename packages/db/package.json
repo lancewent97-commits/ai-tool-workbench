@@ -1,0 +1,27 @@
+{
+  "name": "@ai-tool-workbench/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "migrate": "tsx --env-file-if-exists=../../.env.local src/migrate.ts",
+    "migrate:production": "tsx --env-file=../../.env.production.local src/migrate.ts",
+    "create:production": "tsx --env-file=../../.env.production.local src/create-database.ts",
+    "seed:demo": "tsx --env-file-if-exists=../../.env.local src/seed-demo-tools.ts"
+  },
+  "dependencies": {
+    "@ai-tool-workbench/ai": "workspace:*",
+    "@ai-tool-workbench/contracts": "workspace:*",
+    "postgres": "^3.4.9"
+  },
+  "devDependencies": {
+    "@ai-tool-workbench/config": "workspace:*",
+    "@types/node": "^20.19.43",
+    "tsx": "^4.23.13",
+    "typescript": "^5.1.3"
+  }
+}

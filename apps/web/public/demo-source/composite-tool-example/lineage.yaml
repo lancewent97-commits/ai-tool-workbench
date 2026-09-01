@@ -1,0 +1,8 @@
+schema_version: "1"
+relationship: composite
+source_tool_id: null
+source_version_id: null
+components:
+  - pdf-extractor@v2.3.0
+  - phonetic-organizer@v2.0.0
+  - batch-dubbing@v3.1.0

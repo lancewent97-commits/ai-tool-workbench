@@ -1,0 +1,39 @@
+{
+  "name": "ai-tool-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "dev": "pnpm dev:test",
+    "dev:test": "NEXT_DIST_DIR=.next-test NEXT_PUBLIC_PLATFORM_ENV=test API_INTERNAL_URL=http://127.0.0.1:3100 pnpm --filter @ai-tool-workbench/web dev",
+    "dev:production": "NEXT_DIST_DIR=.next-production NEXT_PUBLIC_PLATFORM_ENV=production API_INTERNAL_URL=http://127.0.0.1:3200 pnpm --filter @ai-tool-workbench/web exec next dev --webpack -p 3001",
+    "dev:api": "pnpm dev:api:test",
+    "dev:api:test": "PLATFORM_ENV=test PLATFORM_STORAGE_ROOT=var/test SESSION_COOKIE_NAME=atw_test_session pnpm --filter @ai-tool-workbench/api dev",
+    "dev:api:production": "pnpm --filter @ai-tool-workbench/api dev:production",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test && node --test scripts/*.test.mjs",
+    "test:e2e": "pnpm --filter @ai-tool-workbench/web test:e2e",
+    "test:browser": "pnpm --filter @ai-tool-workbench/web test:browser",
+    "assets:standards": "node scripts/build-standard-demo-assets.mjs",
+    "eval:deepseek": "pnpm --filter @ai-tool-workbench/ai eval:deepseek",
+    "eval:deepseek:context": "pnpm --filter @ai-tool-workbench/ai eval:deepseek:context",
+    "eval:deepseek:recommendation": "pnpm --filter @ai-tool-workbench/api eval:deepseek:recommendation",
+    "db:up": "docker compose -f deploy/compose/docker-compose.dev.yml up -d",
+    "db:down": "docker compose -f deploy/compose/docker-compose.dev.yml down",
+    "db:migrate": "pnpm --filter @ai-tool-workbench/db migrate",
+    "db:seed": "PLATFORM_ENV=test ALLOW_DEMO_SEED=true pnpm --filter @ai-tool-workbench/db seed:demo",
+    "db:init:production": "pnpm --filter @ai-tool-workbench/db create:production && pnpm --filter @ai-tool-workbench/db migrate:production",
+    "bootstrap:admin": "pnpm --filter @ai-tool-workbench/api bootstrap:admin",
+    "bootstrap:admin:production": "pnpm --filter @ai-tool-workbench/api bootstrap:admin:production",
+    "deploy:production:validate": "node --env-file=.env.production.local scripts/validate-production-config.mjs",
+    "deploy:production:config": "pnpm deploy:production:validate && docker compose --env-file .env.production.local -f deploy/compose/docker-compose.production.yml config",
+    "deploy:production:up": "pnpm deploy:production:validate && docker compose --env-file .env.production.local -f deploy/compose/docker-compose.production.yml up -d --build",
+    "deploy:production:down": "docker compose --env-file .env.production.local -f deploy/compose/docker-compose.production.yml down",
+    "release:check": "pnpm typecheck && pnpm lint && pnpm test && pnpm build && pnpm deploy:production:config"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
+  }
+}

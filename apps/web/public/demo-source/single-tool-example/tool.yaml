@@ -1,0 +1,11 @@
+schema_version: "1"
+name: 文本行数统计工具
+version: v1.0.0
+type: executable
+entry: node tool-files/count-lines.mjs
+inputs: [脱敏文本目录]
+outputs: [JSON行数汇总]
+network: false
+permissions: [读取指定目录]
+cost: none
+verification: verified

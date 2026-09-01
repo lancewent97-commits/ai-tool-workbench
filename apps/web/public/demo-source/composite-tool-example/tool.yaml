@@ -1,0 +1,11 @@
+schema_version: "1"
+name: 教材词表音频组合工具
+version: v1.0.0
+type: composite
+entry: TASK.md
+inputs: [脱敏教材词表]
+outputs: [结构化词表, 音频索引]
+network: optional
+permissions: [读取指定输入目录, 写入指定输出目录]
+cost: possible
+verification: partly-verified

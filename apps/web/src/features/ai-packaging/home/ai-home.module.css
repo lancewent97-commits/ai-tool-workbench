@@ -1,0 +1,612 @@
+.page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 95px 100px 48px;
+}
+.taskCardBody h4 a,.completedRow>a{color:inherit;text-decoration:none}.completedRow>a{display:grid;place-items:center;min-width:70px;height:34px;border:1px solid #dddde5;border-radius:7px;color:#5d49e4;font-size:12px}
+
+.page h1 {
+  position: relative;
+  top: 5px;
+  width: min(100%, 1136px);
+  margin: 0 0 0 140px;
+  color: #111827;
+  font-size: clamp(30px, 2.35vw, 40px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.composer {
+  position: relative;
+  top: 5px;
+  width: min(100%, 1136px);
+  height: 304px;
+  margin: 31px 0 0 140px;
+  padding: 80px 28px 22px;
+  border: 1px solid #efedf0;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 32px rgba(54, 45, 35, 0.08);
+}
+
+.modeSwitch {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  display: grid;
+  width: 433px;
+  height: 48px;
+  grid-template-columns: 1fr 1fr;
+  padding: 2px;
+  border-radius: 26px;
+  background: #f5f4f4;
+  transform: translateX(-50%);
+}
+
+.modeButton,
+.modeActive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 24px;
+  color: #3d4252;
+  background: transparent;
+  font: inherit;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.modeActive {
+  color: #5e4be6;
+  background: #fff;
+  box-shadow: 0 2px 9px rgba(47, 42, 81, 0.08);
+}
+
+.inputPanel {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border: 1px solid #d9d8df;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.selectedContext {
+  position: absolute;
+  z-index: 2;
+  top: 14px;
+  left: 18px;
+  display: flex;
+  max-width: calc(100% - 36px);
+  min-height: 34px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  border: 1px solid #dcd6ff;
+  border-radius: 9px;
+  color: #5543cf;
+  background: #f7f5ff;
+  font-size: 13px;
+}
+
+.selectedContext span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.selectedContext button {
+  flex: 0 0 auto;
+  border: 0;
+  color: #7465d9;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.inputPanel:focus-within {
+  border-color: #8f81ef;
+  box-shadow: 0 0 0 3px rgba(99, 82, 231, 0.11);
+}
+
+.inputPanel textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: 0;
+  outline: 0;
+  padding: 18px 22px 68px;
+  color: #1d2434;
+  background: transparent;
+  font: inherit;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.selectedContext + label + textarea {
+  padding-top: 58px;
+}
+
+.inputPanel textarea::placeholder {
+  color: #8c92a3;
+}
+
+.createButton {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  height: 45px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  background: #6250e6;
+  font: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(98, 80, 230, 0.2);
+}
+
+.createButton:hover {
+  background: #5543d7;
+}
+
+.notice {
+  position: absolute;
+  right: 28px;
+  bottom: -29px;
+  margin: 0;
+  color: #4b5568;
+  font-size: 13px;
+}
+
+.tasksSection {
+  width: min(100%, 1278px);
+  margin: 29px 0 0;
+}
+
+.sectionHeader {
+  display: flex;
+  min-height: 43px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  color: #161c2b;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.taskActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.searchBox {
+  display: flex;
+  width: 329px;
+  height: 41px;
+  align-items: center;
+  gap: 9px;
+  padding: 0 16px;
+  border: 1px solid #dbdbe2;
+  border-radius: 14px;
+  color: #9aa1af;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.searchBox:focus-within {
+  border-color: #8e80ec;
+  box-shadow: 0 0 0 3px rgba(99, 82, 231, 0.1);
+}
+
+.searchBox input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  color: #262d3d;
+  background: transparent;
+  font: inherit;
+  font-size: 15px;
+}
+
+.searchBox input::placeholder {
+  color: #9ba1af;
+}
+
+.newTaskButton {
+  display: flex;
+  height: 41px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  border: 1px solid #cec7fb;
+  border-radius: 12px;
+  color: #5e4be7;
+  background: rgba(255, 255, 255, 0.78);
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.taskColumns {
+  display: grid;
+  grid-template-columns: 686px 536px;
+  gap: 56px;
+  margin-top: 18px;
+}
+
+.columnTitle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 12px;
+  color: #151b2a;
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.columnTitle span {
+  display: inline-grid;
+  min-width: 25px;
+  height: 25px;
+  padding: 0 7px;
+  place-items: center;
+  border-radius: 13px;
+  color: #374151;
+  background: #f0f0f2;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.inProgressGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.taskCard {
+  display: grid;
+  min-width: 0;
+  grid-template-rows: 118px 1fr;
+  overflow: hidden;
+  border: 1px solid #d8d8df;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(35, 38, 56, 0.02);
+}
+
+.taskArtwork {
+  position: relative;
+  min-width: 0;
+  height: 118px;
+  overflow: hidden;
+  background: #f1f5fc;
+}
+
+.taskArtwork img {
+  object-fit: cover;
+}
+
+.taskArtwork .zoomArtwork {
+  transform: scale(1.13);
+}
+
+.taskArtwork button {
+  position: absolute;
+  top: 9px;
+  right: 15px;
+  display: grid;
+  width: 33px;
+  height: 28px;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  color: #697287;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.taskArtwork .taskMenu {
+  position: absolute;
+  z-index: 3;
+  top: 41px;
+  right: 15px;
+  display: grid;
+  width: 128px;
+  padding: 6px;
+  border: 1px solid #e1e1e7;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(31, 30, 49, 0.12);
+}
+
+.taskMenu a {
+  padding: 7px 9px;
+  border-radius: 6px;
+  color: #414858;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.taskMenu a:hover {
+  color: #5745df;
+  background: #f3f1ff;
+}
+
+.taskCardBody {
+  display: flex;
+  min-width: 0;
+  min-height: 166px;
+  flex-direction: column;
+  padding: 16px 24px 20px;
+}
+
+.taskCard h4,
+.completedRow h4 {
+  margin: 0;
+  color: #1e2534;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.taskCard h4 {
+  display: -webkit-box;
+  min-height: 43px;
+  overflow: hidden;
+  line-height: 1.3;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.taskSummary {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+  margin: 11px 0 0;
+  overflow: hidden;
+  color: #747b89;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.taskSummary svg {
+  flex: 0 0 auto;
+}
+
+.progressMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  color: #898f9e;
+  font-size: 13px;
+}
+
+.progressMeta span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #626979;
+}
+
+.progressMeta i {
+  width: 12px;
+  height: 12px;
+  border: 3px solid #c6bcff;
+  border-radius: 50%;
+}
+
+.progressTrack {
+  height: 7px;
+  margin-top: 13px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #eeeeef;
+}
+
+.progressTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #654eea;
+}
+
+.completedList {
+  display: grid;
+  gap: 12px;
+}
+
+.completedRow {
+  display: grid;
+  min-height: 84px;
+  grid-template-columns: 49px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 17px;
+  border: 1px solid #e0dfe4;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.fileIcon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 13px;
+}
+
+.doc {
+  color: #3478f6;
+  background: #eaf2ff;
+}
+
+.sheet {
+  color: #45a66a;
+  background: #e9f7ed;
+}
+
+.slides {
+  color: #ed7541;
+  background: #fff0e9;
+}
+
+.completedCopy {
+  min-width: 0;
+}
+
+.completedCopy h4,
+.completedCopy p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.completedCopy p {
+  margin: 5px 0 0;
+  color: #858b99;
+  font-size: 13px;
+}
+
+.completedRow time {
+  color: #8b91a0;
+  font-size: 13px;
+}
+
+.completedRow > button {
+  height: 36px;
+  padding: 0 15px;
+  border: 1px solid #c9c1fb;
+  border-radius: 11px;
+  color: #5e4be7;
+  background: #fff;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.createButton:focus-visible,
+.modeButton:focus-visible,
+.modeActive:focus-visible,
+.newTaskButton:focus-visible,
+.taskArtwork button:focus-visible,
+.completedRow > button:focus-visible {
+  outline: 3px solid rgba(98, 82, 231, 0.25);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1600px) {
+  .page {
+    padding-inline: 6vw;
+  }
+
+  .page h1,
+  .composer,
+  .tasksSection {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .page h1 {
+    width: auto;
+  }
+
+  .taskColumns {
+    grid-template-columns: minmax(500px, 1.2fr) minmax(390px, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .page {
+    padding-top: 110px;
+  }
+
+  .taskColumns {
+    grid-template-columns: 1fr;
+  }
+
+  .completedList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .completedRow {
+    grid-template-columns: 49px minmax(0, 1fr) auto;
+  }
+
+  .completedRow time {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    padding: 82px 18px 36px;
+  }
+
+  .page h1 {
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 27px;
+  }
+
+  .composer {
+    height: 326px;
+    padding: 76px 14px 14px;
+  }
+
+  .modeSwitch {
+    width: calc(100% - 28px);
+  }
+
+  .inputPanel {
+    height: 234px;
+  }
+
+  .sectionHeader,
+  .taskActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .taskActions {
+    gap: 10px;
+  }
+
+  .searchBox,
+  .newTaskButton {
+    width: 100%;
+  }
+
+  .newTaskButton {
+    justify-content: center;
+  }
+
+  .inProgressGrid,
+  .completedList {
+    grid-template-columns: 1fr;
+  }
+
+  .taskColumns {
+    min-width: 0;
+  }
+
+  .completedRow {
+    grid-template-columns: 49px minmax(0, 1fr) auto;
+  }
+}

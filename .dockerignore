@@ -1,0 +1,11 @@
+.git
+**/.next*
+**/node_modules
+**/*.tsbuildinfo
+design
+var
+.env*
+!.env.example
+!.env.production.example
+playwright-report
+test-results

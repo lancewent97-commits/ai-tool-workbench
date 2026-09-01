@@ -1,0 +1,1 @@
+{"id":"pdf-content-extractor","version":"2.3","source":null,"entry":"README.md","inputs":["pdf"],"outputs":["xlsx","json","markdown"]}

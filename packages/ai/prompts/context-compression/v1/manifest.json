@@ -1,0 +1,6 @@
+{
+  "key": "context-compression",
+  "version": "1.0.0",
+  "systemFile": "system.md",
+  "outputContract": "ContextSnapshot"
+}
