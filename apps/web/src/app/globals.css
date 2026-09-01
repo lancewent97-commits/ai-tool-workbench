@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbfaf8;
+  --foreground: #111827;
+  --app-font-sans: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC",
+    "Helvetica Neue", Arial, sans-serif;
+  --app-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--app-font-sans);
+  --font-mono: var(--app-font-mono);
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--app-font-sans);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

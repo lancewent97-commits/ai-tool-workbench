@@ -1,0 +1,135 @@
+[
+  {
+    "id": "pdf-table-with-source",
+    "brief": {
+      "goal": "把脱敏PDF教材样例中的表格整理成可编辑Excel，并保留章节和来源页码",
+      "input": "脱敏PDF教材样例",
+      "deliverables": ["可编辑表格（Excel）", "章节和来源页码字段"],
+      "constraints": ["不得丢失表格行列关系"],
+      "rejectedOptions": []
+    },
+    "expected": {
+      "coverage": "complete",
+      "requiredToolGroups": [
+        {
+          "name": "PDF表格提取",
+          "anyOf": ["pdf-content-extractor", "pdf-education-table"]
+        }
+      ],
+      "forbiddenTools": [],
+      "maximumTools": 2,
+      "minimumGaps": 0,
+      "productionPromptTerms": []
+    }
+  },
+  {
+    "id": "word-phonetic-audio",
+    "brief": {
+      "goal": "从脱敏英语教材PDF样例提取单词、整理音标并生成逐词跟读音频",
+      "input": "脱敏英语教材PDF样例",
+      "deliverables": ["结构化单词表", "音标清单", "逐词跟读音频"],
+      "constraints": ["音频按单词和章节组织"],
+      "rejectedOptions": []
+    },
+    "expected": {
+      "coverage": "complete",
+      "requiredToolGroups": [
+        {
+          "name": "教材内容提取",
+          "anyOf": ["teacher-material-audio", "pdf-content-extractor", "pdf-education-table"]
+        },
+        {
+          "name": "音标整理",
+          "anyOf": ["teacher-material-audio", "phonetic-organizer", "phonetic-primary"]
+        },
+        {
+          "name": "音频生成",
+          "anyOf": ["teacher-material-audio", "batch-dubbing", "batch-dubbing-slow"]
+        }
+      ],
+      "forbiddenTools": [],
+      "maximumTools": 4,
+      "minimumGaps": 0,
+      "productionPromptTerms": []
+    }
+  },
+  {
+    "id": "explicit-no-audio",
+    "brief": {
+      "goal": "从脱敏英语教材PDF样例提取单词并整理音标，不生成音频",
+      "input": "脱敏英语教材PDF样例",
+      "deliverables": ["结构化单词表", "音标清单"],
+      "constraints": ["不生成任何音频文件"],
+      "rejectedOptions": ["不要配音、发音或跟读音频"]
+    },
+    "expected": {
+      "coverage": "complete",
+      "requiredToolGroups": [
+        {
+          "name": "教材内容提取",
+          "anyOf": ["pdf-content-extractor", "pdf-education-table"]
+        },
+        {
+          "name": "音标整理",
+          "anyOf": ["phonetic-organizer", "phonetic-primary"]
+        }
+      ],
+      "forbiddenTools": [
+        "teacher-material-audio",
+        "batch-dubbing",
+        "batch-dubbing-slow",
+        "dubbing-naming-rules"
+      ],
+      "maximumTools": 2,
+      "minimumGaps": 0,
+      "productionPromptTerms": []
+    }
+  },
+  {
+    "id": "manual-selection-preserved",
+    "selectedToolSlug": "image-compressor",
+    "brief": {
+      "goal": "批量压缩脱敏图片样例并尽量保持清晰度",
+      "input": "脱敏图片样例文件夹",
+      "deliverables": ["压缩后的图片文件夹"],
+      "constraints": ["保持图片可读性"],
+      "rejectedOptions": []
+    },
+    "expected": {
+      "coverage": "complete",
+      "requiredToolGroups": [
+        {
+          "name": "用户手选图片压缩工具",
+          "anyOf": ["image-compressor"]
+        }
+      ],
+      "forbiddenTools": [],
+      "maximumTools": 1,
+      "minimumGaps": 0,
+      "productionPromptTerms": []
+    }
+  },
+  {
+    "id": "report-capability-gap",
+    "brief": {
+      "goal": "分析脱敏PDF资料样例并生成一份结论报告",
+      "input": "脱敏PDF资料样例",
+      "deliverables": ["分析结论报告"],
+      "constraints": ["报告需要包含结论和依据"],
+      "rejectedOptions": []
+    },
+    "expected": {
+      "coverage": "partial",
+      "requiredToolGroups": [
+        {
+          "name": "PDF内容提取",
+          "anyOf": ["pdf-content-extractor", "pdf-scan-precision", "document-converter"]
+        }
+      ],
+      "forbiddenTools": [],
+      "maximumTools": 2,
+      "minimumGaps": 1,
+      "productionPromptTerms": ["工具生产与上传标准"]
+    }
+  }
+]

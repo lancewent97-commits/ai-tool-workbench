@@ -1,0 +1,6 @@
+{
+  "key": "recommendation",
+  "version": "1.0.0",
+  "systemFile": "system.md",
+  "outputContract": "RecommendationResult"
+}

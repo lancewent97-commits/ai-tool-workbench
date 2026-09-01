@@ -1,0 +1,8 @@
+{
+  "name": "@ai-tool-workbench/config",
+  "version": "0.1.0",
+  "private": true,
+  "files": [
+    "tsconfig.base.json"
+  ]
+}

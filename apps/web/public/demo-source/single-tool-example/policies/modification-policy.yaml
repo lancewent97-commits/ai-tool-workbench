@@ -1,0 +1,6 @@
+schema_version: "1"
+copy_before_change: true
+require_user_confirmation: true
+update_changelog: true
+record_validation: true
+forbid_overwrite_source: true

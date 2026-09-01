@@ -1,0 +1,1 @@
+{"id":"batch-dubbing","version":"3.1","source":null,"entry":"README.md","inputs":["word-list"],"outputs":["mp3-folder"],"risks":["third-party-fee"]}

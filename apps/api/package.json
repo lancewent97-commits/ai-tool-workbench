@@ -1,0 +1,36 @@
+{
+  "name": "@ai-tool-workbench/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file-if-exists=../../.env.local src/server.ts",
+    "dev:production": "tsx watch --env-file=../../.env.production.local src/server.ts",
+    "start": "tsx --env-file-if-exists=../../.env.local src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test 'src/**/*.test.ts'",
+    "eval:deepseek:recommendation": "tsx --env-file-if-exists=../../.env.local src/evaluation/run-deepseek-recommendation-evaluation.ts",
+    "bootstrap:admin": "tsx --env-file-if-exists=../../.env.local src/scripts/bootstrap-admin.ts",
+    "bootstrap:admin:production": "tsx --env-file=../../.env.production.local src/scripts/bootstrap-admin.ts",
+    "seed:e2e-user": "tsx src/scripts/seed-e2e-user.ts"
+  },
+  "dependencies": {
+    "@ai-tool-workbench/ai": "workspace:*",
+    "@ai-tool-workbench/contracts": "workspace:*",
+    "@ai-tool-workbench/db": "workspace:*",
+    "@ai-tool-workbench/package-builder": "workspace:*",
+    "@fastify/cookie": "^11.1.2",
+    "fastify": "^5.12.1",
+    "js-yaml": "^4.3.2",
+    "yauzl": "^3.4.0",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@ai-tool-workbench/config": "workspace:*",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.19.43",
+    "@types/yauzl": "^3.4.0",
+    "tsx": "^4.23.13",
+    "typescript": "^5.1.3"
+  }
+}

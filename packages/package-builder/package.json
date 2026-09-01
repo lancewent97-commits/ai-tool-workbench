@@ -1,0 +1,24 @@
+{
+  "name": "@ai-tool-workbench/package-builder",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test 'src/**/*.test.ts'"
+  },
+  "dependencies": {
+    "@ai-tool-workbench/contracts": "workspace:*",
+    "archiver": "^8.0.0"
+  },
+  "devDependencies": {
+    "@ai-tool-workbench/config": "workspace:*",
+    "@types/archiver": "^8.0.0",
+    "@types/node": "^20.19.43",
+    "tsx": "^4.23.13",
+    "typescript": "^5.1.3"
+  }
+}

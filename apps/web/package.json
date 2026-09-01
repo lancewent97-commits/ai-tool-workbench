@@ -1,0 +1,33 @@
+{
+  "name": "@ai-tool-workbench/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "node ../../tests/e2e/smoke.mjs && node ../../tests/e2e/control-audit.mjs",
+    "test:browser": "playwright test --config=../../playwright.config.ts"
+  },
+  "dependencies": {
+    "@ai-tool-workbench/contracts": "workspace:*",
+    "@phosphor-icons/react": "^2.1.10",
+    "next": "16.2.11",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^20.19.43",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.2.11",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.1.3"
+  }
+}

@@ -1,0 +1,48 @@
+[
+  {
+    "id": "clear-pdf-table",
+    "message": "把脱敏PDF教材样例中的表格整理成可编辑Excel，并保留页码来源。",
+    "expected": {
+      "maxQuestions": 0,
+      "deliverablesInclude": ["可编辑表格"],
+      "deliverablesExclude": []
+    }
+  },
+  {
+    "id": "ambiguous-material",
+    "message": "帮我处理一批脱敏测试资料。",
+    "expected": {
+      "minQuestions": 1,
+      "maxQuestions": 3,
+      "deliverablesInclude": [],
+      "deliverablesExclude": []
+    }
+  },
+  {
+    "id": "word-phonetic-audio",
+    "message": "从脱敏英语教材PDF样例提取单词，整理音标，并生成逐词跟读音频。",
+    "expected": {
+      "maxQuestions": 0,
+      "deliverablesInclude": ["单词", "音标", "音频"],
+      "deliverablesExclude": []
+    }
+  },
+  {
+    "id": "explicit-no-audio",
+    "message": "从脱敏英语教材PDF样例提取单词和音标，不要生成音频。",
+    "expected": {
+      "maxQuestions": 0,
+      "deliverablesInclude": ["单词", "音标"],
+      "deliverablesExclude": ["音频"]
+    }
+  },
+  {
+    "id": "image-to-table",
+    "message": "把脱敏扫描图片样例中的文字和表格整理成可编辑表格。",
+    "expected": {
+      "maxQuestions": 0,
+      "deliverablesInclude": ["表格"],
+      "deliverablesExclude": []
+    }
+  }
+]

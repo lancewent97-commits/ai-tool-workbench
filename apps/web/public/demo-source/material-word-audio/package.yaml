@@ -1,0 +1,7 @@
+id: material-word-audio-v1
+standard: 1.0
+source: ai-package
+tools:
+  - pdf-content-extractor@v2.3
+  - phonetic-organizer@v1.8
+  - batch-dubbing@v3.1

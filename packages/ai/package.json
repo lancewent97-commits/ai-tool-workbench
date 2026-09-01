@@ -1,0 +1,25 @@
+{
+  "name": "@ai-tool-workbench/ai",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test 'src/**/*.test.ts'",
+    "eval:deepseek": "tsx src/evaluation/run-deepseek-evaluation.ts",
+    "eval:deepseek:context": "tsx src/evaluation/run-deepseek-context-evaluation.ts"
+  },
+  "dependencies": {
+    "@ai-tool-workbench/contracts": "workspace:*",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@ai-tool-workbench/config": "workspace:*",
+    "@types/node": "^20.19.43",
+    "tsx": "^4.23.13",
+    "typescript": "^5.1.3"
+  }
+}
